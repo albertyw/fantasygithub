@@ -1,0 +1,15 @@
+.block-item {
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px #000;
+    margin-bottom: 15px;
+    overflow: auto;
+}
+
+.block-item * {
+    margin-left: 80px;
+}
+
+.block-item img {
+    margin-left: 0;
+    float: left;
+}

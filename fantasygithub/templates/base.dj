@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <link href="{% get_static_prefix %}bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="{% get_static_prefix %}css/custom.css" rel="stylesheet">
     <link href="{% get_static_prefix %}css/spruce.min.css" rel="stylesheet">
     <style type="text/css">
       body {
