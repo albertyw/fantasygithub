@@ -33,6 +33,7 @@ def manage(request):
             team = Team.objects.filter(name=team_name, manager=request.user)
             if len(team) != 0:
                 team.delete()
+            return HttpResponse('done')
         
         
     teams = []
