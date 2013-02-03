@@ -7,6 +7,9 @@
       {{ errors }}
     </div>
   {% endif %}
-  {{ form.as_p }}
+  <form action="/login" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn" type="submit" value="Log in" />
+  </form>
 </div>
 {% endblock %}
