@@ -1,1 +1,4 @@
+{% load static %}
 adslkghalkdshgalkdshgalkdshg
+
+{% get_static_prefix %}
