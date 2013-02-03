@@ -19,7 +19,7 @@ class Team(models.Model):
 
 class Dev(models.Model):
     teams = models.ManyToManyField(Team)
-    login = models.CharField(max_length=64, primary_key=True)
+    username = models.CharField(max_length=64, primary_key=True)
     avatar_url = models.CharField(max_length=256)
     last_updated = models.DateTimeField(auto_now = True)
     class Meta:

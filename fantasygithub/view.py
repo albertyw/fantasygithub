@@ -4,13 +4,23 @@ from django.http import Http404
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from fantasygithub.models import Team
+from fantasygithub.github import GitInfo
 from django.template import RequestContext
 
 @login_required
 def manage(request):
     if request.method == 'POST':
-        #if 'POST' in request.POST
-        pass
+        if 'create_team' in request.POST:
+            a = Team()
+            a.manager = request.user
+            a.name = request.POST['name']
+            a.save()
+            return HttpResponse('done')
+        if 'check_dev' in request.POST:
+            a = GitInfo()
+            return HttpResponse(str(a.is_dev(request.POST['username'])))
+        
+        
     teams = []
     for team in Team.objects.filter(manager=request.user).all():
         teams += team.name

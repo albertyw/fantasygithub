@@ -12,11 +12,9 @@ from pygithub3 import Github
 
 from fantasygithub.models.models import Dev, Commit
 
-user = 'albertyw'
-token = 'f8b5faa6fcc0f772480e23418af5b04b1879640b'
-
 class GitInfo():
-    def __init__(self, token):
+    def __init__(self):
+        token = 'f8b5faa6fcc0f772480e23418af5b04b1879640b'
         self.gh = Github(token=token)
     
     """
@@ -65,12 +63,22 @@ class GitInfo():
     """
     def get_dev(self, user):
         try:
-            return Dev.objects.get(login=user)
+            return Dev.objects.get(username=user)
         except:
             user = self.gh.users.get(user)
-            dev = Dev(login=user, avatar_url=user.avatar_url)
+            dev = Dev(username=user, avatar_url=user.avatar_url)
             dev.save()
             return dev
+            
+    """
+    Check whether a string is a valid dev username
+    """
+    def is_dev(self, username):
+        try:
+            self.gh.users.get(username)
+            return True
+        except:
+            return False
         
     """
     Get all commits between dates
@@ -81,9 +89,9 @@ class GitInfo():
     def test(self):
         return None
         
-a = GitInfo(token)
-print a.test()
-commits = a.get_user_commits('hrs')
-a.save_commits('hrs', commits, datetime.datetime.now())
+a = GitInfo()
+print a.is_dev('hrs')
+#commits = a.get_user_commits('hrs')
+#a.save_commits('hrs', commits, datetime.datetime.now())
 
 
