@@ -11,7 +11,7 @@ fi
 echo ''
 echo 'CLEARING DATABASE'
 echo ''
-python manage.py sqlclear statsonice | python manage.py dbshell
+python manage.py sqlclear fantasygithub | python manage.py dbshell
 
 # Make the database
 echo ''
