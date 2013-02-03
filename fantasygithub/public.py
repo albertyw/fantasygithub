@@ -2,14 +2,14 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import Http404
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, UserCreationForm
 from django.template import RequestContext
 
 def home(request):
     return render_to_response('views/index.html')
 
-def login(request):
+def login_page(request):
     errors = ''
     if request.method == 'POST':
         username = request.POST['username']
