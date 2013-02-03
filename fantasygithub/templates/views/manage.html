@@ -5,9 +5,15 @@
 <div class="row">
   <div class="span3">
     <h2>Your Teams</h2>
-    {% for team in teams %}
-      {% include "views/team_block.html" %}
-    {% endfor %}
+    {% if teams|length == 0 %}
+      <div style="text-align: center">
+        <p>You haven't build any teams yet.</p>
+      </div>
+    {% else %}
+      {% for team in teams %}
+        {% include "views/team_block.html" %}
+      {% endfor %}
+    {% endif %}
     <p><a class="btn" href="#">Build a new team &raquo;</a></p>
   </div>
   <div class="span9">
