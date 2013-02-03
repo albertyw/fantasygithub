@@ -9,7 +9,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'fantasygithub.public.home', name='home'),
-    url(r'^login$', 'fantasygithub.public.login_page', name='login_page'), 
+    url(r'^login$', 'fantasygithub.public.login_page', name='login_page'),
+    url(r'^logout$', 'fantasygithub.public.logout_page', name='logout_page'),
     url(r'^about$', 'fantasygithub.public.about', name='about'),
     url(r'^manage$', 'fantasygithub.view.manage', name='manage'),
     url(r'^play$', 'fantasygithub.view.play', name='play'),
