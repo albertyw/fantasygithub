@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, UserCreationForm
+from django.template import RequestContext
 
 def home(request):
     return render_to_response('views/index.html')
@@ -25,7 +26,7 @@ def login(request):
     form = AuthenticationForm(request)
     return render_to_response('views/login.html', 
         {'form': form,
-         'errors': errors},
+         'errors': errors}, context_instance=RequestContext(request),
         )
 
 def about(request):

@@ -1,3 +1,3 @@
 from types import MethodType
 
-from fantasygithub.models.models import Manager, Team, Dev, Commit
+from fantasygithub.models.models import User, Team, Dev, Commit

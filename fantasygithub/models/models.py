@@ -1,18 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Manager(User):
-    # username
-    # password
-    # email
-    # first_name
-    # last_name
-    pass
-    class Meta:
-        app_label = 'fantasygithub'
+#class Manager(User):
+#    username
+#    password
+#    email
+#    first_name
+#    last_name
+#    pass
+#    class Meta:
+#        app_label = 'fantasygithub'
 
 class Team(models.Model):
-    manager = models.ForeignKey(Manager)
+    manager = models.ForeignKey(User)
     name = models.CharField(max_length=64)
     class Meta:
         app_label = 'fantasygithub'
