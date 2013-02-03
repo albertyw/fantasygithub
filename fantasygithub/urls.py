@@ -9,6 +9,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'fantasygithub.view.home', name='home'),
+    url(r'^manage$', 'fantasygithub.view.manage', name='manage'),
+    url(r'^play$', 'fantasygithub.view.play', name='play'),
+    url(r'^about$', 'fantasygithub.view.about', name='about'),
     # url(r'^fantasygithub/', include('fantasygithub.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
