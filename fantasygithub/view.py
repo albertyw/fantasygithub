@@ -29,5 +29,11 @@ def manage(request):
 
 @login_required
 def play(request):
-    return render_to_response('views/play.html', context_instance=RequestContext(request))
-
+    if request.method == 'POST':
+        #if 'POST' in request.POST
+        pass
+    teams = []
+    for team in Team.objects.filter(manager=request.user).all():
+        teams += team.name
+    print teams
+    return render_to_response('views/play.html', {'teams': teams}, context_instance=RequestContext(request))
