@@ -35,6 +35,7 @@ class GitInfo():
         repos = self.get_user_repos(user)
         all_commits = []
         for repo in repos:
+            # TODO this should call __save_commits in order to not hit github too much
             try:
                 commits = self.gh.repos.commits.list(user=repo.owner.login, repo=repo.name)
             except:
@@ -45,7 +46,7 @@ class GitInfo():
     """
     Save commits
     """
-    def save_commits(self, user, commits, search_time):
+    def __save_commits(self, user, commits, search_time):
         dev = self.get_dev(user)
         for commit in commits:
             if len(Commit.objects.filter(sha=commit.sha)) != 0:
@@ -84,14 +85,13 @@ class GitInfo():
     Get all commits between dates
     """
     def get_user_commits_dates(self, user, start_date, end_date):
+        # TODO 
         return None
     
-    def test(self):
-        return None
-        
 a = GitInfo()
-print a.is_dev('hrs')
-#commits = a.get_user_commits('hrs')
+print a.is_dev('albertyw')
+commits = a.get_user_commits('albertyw')
+print len(commits)
 #a.save_commits('hrs', commits, datetime.datetime.now())
 
 
