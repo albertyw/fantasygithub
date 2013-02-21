@@ -105,7 +105,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'fantasygithub.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'fantasygithub.wsgi.application'
+WSGI_APPLICATION = 'util.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT,'template')
