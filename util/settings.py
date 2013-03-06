@@ -5,6 +5,7 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))+'/../fantasygithub/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+ALLOWED_HOSTS = ['.statsonice.com']
 
 ADMINS = (
     ('Albert Wang', 'albertyw@mit.edu'),
